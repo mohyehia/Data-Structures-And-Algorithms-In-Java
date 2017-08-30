@@ -1,6 +1,8 @@
 package queue;
+
 import java.util.LinkedList;
-public class LinkedQueue<E> implements Queue<E> {
+
+public class LinkedQueue<E> implements Queue<E>{
 	private LinkedList<E> list;
 	public LinkedQueue() {
 		list = new LinkedList<>();

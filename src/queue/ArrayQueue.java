@@ -1,39 +1,38 @@
 package queue;
-
 import java.util.Arrays;
-
-public class ArrayQueue<E> implements Queue<E> {
-	private E[] data;
+//implement queue using an array to store data
+public class ArrayQueue<E> implements Queue<E>{
 	private static int capacity = 1;
-	private int front = 0, sz = 0;
+	private E[] data;
+	private int front = 0, size = 0;
 	public ArrayQueue() {
 		this(capacity);
 	}
-	public ArrayQueue(int c){
-		data = (E[]) new Object[c];
+	public ArrayQueue(int capacity) {
+		this.capacity = capacity;
+		data = (E[]) new Object[capacity];
 	}
 	@Override
 	public int size() {
-		return sz;
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return size() == 0;
+		return size == 0;
 	}
 
 	@Override
 	public void enqueue(E e) {
-		if(size() == data.length) grow();
-		int index = (front + size()) % data.length;
+		if(size == data.length) resize();
+		int index = (front + size) % data.length;
 		data[index] = e;
-		sz++;
+		size++;
 	}
 
 	@Override
 	public E first() {
-		if(isEmpty()) return null;
-		return data[front];
+		return isEmpty() ? null : data[front];
 	}
 
 	@Override
@@ -42,10 +41,11 @@ public class ArrayQueue<E> implements Queue<E> {
 		E e = data[front];
 		data[front] = null;
 		front = (front + 1) % data.length;
-		sz--;
+		size--;
 		return e;
 	}
-	private void grow(){
+	
+	private void resize() {
 		E[] temp = data;
 		capacity *= 2;
 		data = Arrays.copyOf(temp, capacity);
