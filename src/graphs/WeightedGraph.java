@@ -10,19 +10,17 @@ public class WeightedGraph {
 		for(int i = 0; i < numOfNodes; i++)
 			graph[i] = new ArrayList<>();
 		int nodeFrom, nodeTo, cost;
-		for(int i = 0; i < numOfEdges; i++){
+		for(int i = 0; i < numOfEdges; i++) {
 			nodeFrom = in.nextInt();
 			nodeTo = in.nextInt();
 			cost = in.nextInt();
 			graph[nodeFrom].add(new Node(nodeTo, cost));
-			//graph[nodeTo].add(new Node(nodeFrom, cost));
 		}
-		in.close();
 		for(int i = 0; i < numOfNodes; i++)
 			System.out.println(i + " => " + graph[i]);
 	}
-	static class Node{
-		private int node, cost;
+	static class Node {
+		int node, cost;
 		public Node(int node, int cost) {
 			this.node = node;
 			this.cost = cost;
