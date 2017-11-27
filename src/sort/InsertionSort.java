@@ -16,6 +16,7 @@ public class InsertionSort {
 		for(int i = 1; i < len; i++){
 			for(int j = i; j > 0; j--){
 				if(a[j - 1] > a[j]) swap(a, j, j - 1);
+				else break;
 			}
 		}
 	}
