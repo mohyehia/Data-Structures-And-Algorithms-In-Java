@@ -1,4 +1,4 @@
-package map;
+package hashTable;
 
 import java.util.Set;
 
@@ -19,25 +19,25 @@ public interface MyMap<K, V> {
 	 * @param v
 	 * @return
 	 */
-	V put(K k, V v);
+	V put(K key, V value);
 	/**
 	 * 
 	 * @param k
 	 * @return the value that matches the specified key
 	 */
-	V get(K k);
+	V get(K key);
 	/**
 	 * 
 	 * @param k
 	 * @return true if the specified key is in the map
 	 */
-	boolean containtsKey(K k);
+	boolean containtsKey(K key);
 	/**
 	 * 
 	 * @param v
 	 * @return true if this map contains the specified value
 	 */
-	boolean containsValue(V v);
+	boolean containsValue(V value);
 	/**
 	 * 
 	 * @return a set consisting of the keys in this map
@@ -57,7 +57,7 @@ public interface MyMap<K, V> {
 	 * Remove an entry for the specified key
 	 * @param k
 	 */
-	void remove(K k);
+	void remove(K key);
 	/**
 	 * Remove all of the entries from this map
 	 */

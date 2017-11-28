@@ -1,5 +1,6 @@
-package map;
-public class Main {
+package hashTable;
+
+public class Test {
 	public static void main(String[] args) {
 		MyMap<Integer, String> map = new MyHashMap<>();
 		map.put(1, "mohammed");
