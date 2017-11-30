@@ -1,5 +1,6 @@
 package hashTable;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -142,7 +143,12 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 	
 	//helper methods
 	
-	private void ensureExtraCapacity() {}
+	private void ensureExtraCapacity() {
+		if(size >= capacity * loadFactorThreshold) {
+			capacity <<= 1;
+			data = Arrays.copyOf(data, capacity);
+		}
+	}
 	
 	private void removeEntries() {
 		for(int i = 0; i < capacity; i++)
