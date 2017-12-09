@@ -1,53 +1,58 @@
 package singlyLinkedList;
-public class LinkedList<E>{
-	Node<E> tail;
+public class LinkedList<E> {
+	private Node<E> head, tail;
 	private int size;
+	
 	public LinkedList() {
-		tail = null;
+		head = tail = null;
 		size = 0;
 	}
-	public int size(){
+	
+	int size() {
 		return size;
 	}
-	public boolean isEmpty(){
+	
+	boolean isEmpty() {
 		return size == 0;
 	}
-	public E first(){
-		return isEmpty() ? null : tail.next.getData();
+	
+	E first() {
+		return isEmpty() ? null : head.getData();
 	}
-	public E last(){
+	
+	E last() {
 		return isEmpty() ? null : tail.getData();
 	}
-	public void addFirst(E e){
-		if(isEmpty()){
-			tail = new Node<>(e);
-			tail.next = tail;
-		}else{
-			Node<E> node = new Node<>(e);
-			node.next = tail.next;
-			tail.next = node;
-		}
+	
+	void addFirst(E data) {
+		Node<E> node = new Node<>(data, head);
+		head = node;
+		if(isEmpty()) tail = head;
 		size++;
 	}
-	public void addLast(E e){
-		addFirst(e);
-		tail = tail.next;
+	
+	void addLast(E data) {
+		Node<E> node = new Node<>(data, null);
+		if(isEmpty()) head = node;
+		else tail.next = node;
+		tail = node;
+		size++;
 	}
-	public E removeFirst(){
+	
+	E removeFirst() {
 		if(isEmpty()) return null;
-		E e = tail.next.getData();
-		if(tail.next == tail) tail = null;
-		else tail.next = tail.next.next;
+		E data = head.getData();
+		head = head.next;
 		size--;
-		return e;
+		if(isEmpty()) tail = null;
+		return data;
 	}
-	public void print(){
-		if(isEmpty()) return;
-		Node<E> curr = tail;
-		while(true){
-			curr = curr.next;
+	
+	void print() {
+		Node<E> curr = head;
+		while(curr != null) {
 			System.out.println(curr.getData());
-			if(curr == tail) break;
+			curr = curr.next;
 		}
 	}
 }
