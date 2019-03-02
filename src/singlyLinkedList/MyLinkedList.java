@@ -1,45 +1,53 @@
 package singlyLinkedList;
-public class LinkedList<E> {
+public class MyLinkedList<E> implements SinglyLinkedList<E> {
+
 	private Node<E> head, tail;
 	private int size;
 	
-	public LinkedList() {
+	public MyLinkedList() {
 		head = tail = null;
 		size = 0;
 	}
 	
-	int size() {
+	@Override
+	public int size() {
 		return size;
 	}
-	
-	boolean isEmpty() {
+
+	@Override
+	public boolean isEmpty() {
 		return size == 0;
 	}
-	
-	E first() {
+
+	@Override
+	public E first() {
 		return isEmpty() ? null : head.getData();
 	}
-	
-	E last() {
+
+	@Override
+	public E last() {
 		return isEmpty() ? null : tail.getData();
 	}
-	
-	void addFirst(E data) {
+
+	@Override
+	public void addFirst(E data) {
 		Node<E> node = new Node<>(data, head);
 		head = node;
 		if(isEmpty()) tail = head;
 		size++;
 	}
-	
-	void addLast(E data) {
-		Node<E> node = new Node<>(data, null);
+
+	@Override
+	public void addLast(E data) {
+		Node<E> node = new Node<E>(data, null);
 		if(isEmpty()) head = node;
 		else tail.next = node;
 		tail = node;
 		size++;
 	}
-	
-	E removeFirst() {
+
+	@Override
+	public E removeFirst() {
 		if(isEmpty()) return null;
 		E data = head.getData();
 		head = head.next;
@@ -47,12 +55,13 @@ public class LinkedList<E> {
 		if(isEmpty()) tail = null;
 		return data;
 	}
-	
-	void print() {
-		Node<E> curr = head;
-		while(curr != null) {
-			System.out.println(curr.getData());
-			curr = curr.next;
+
+	@Override
+	public void print() {
+		Node<E> current = head;
+		while(current != null) {
+			System.out.println(current.getData());
+			current = current.next;
 		}
 	}
 }

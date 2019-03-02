@@ -1,6 +1,6 @@
 package singlyLinkedList;
 public class Node<E> {
-	private E data;
+	E data;
 	Node<E> next;
 	public Node(E data, Node<E> next) {
 		this.data = data;

@@ -1,7 +1,7 @@
 package singlyLinkedList;
 public class Test {
 	public static void main(String[] args) {
-		LinkedList<Integer> linkedList = new LinkedList<>();
+		MyLinkedList<Integer> linkedList = new MyLinkedList<>();
 		linkedList.addFirst(1);
 		linkedList.addFirst(2);
 		linkedList.addLast(3);
