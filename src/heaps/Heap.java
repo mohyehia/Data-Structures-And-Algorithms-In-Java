@@ -8,7 +8,7 @@ public class Heap<E extends Comparable<E>> {
 	private E[] data;
 	public Heap(int capacity) {
 		this.capacity = capacity;
-		data = (E[]) new Object[capacity];
+		data = (E[]) new Comparable[capacity];
 	}
 	public Heap() {
 		this(capacity);
