@@ -24,7 +24,7 @@ public class ArrayQueue<E> implements Queue<E>{
 
 	@Override
 	public void enqueue(E e) {
-		if(size == data.length) resize();
+		ensureExtraCapacity();
 		int index = (front + size) % data.length;
 		data[index] = e;
 		size++;
@@ -45,29 +45,11 @@ public class ArrayQueue<E> implements Queue<E>{
 		return e;
 	}
 	
-	private void resize() {
-		E[] temp = data;
-		capacity *= 2;
-		data = Arrays.copyOf(temp, capacity);
+	private void ensureExtraCapacity() {
+		if(data.length == capacity) {
+			capacity *= 2;
+			data = Arrays.copyOf(data, capacity);
+		}
 	}
 	
-	public static void main(String[] args) {
-		Queue<Integer> q = new ArrayQueue<>();
-		System.out.println(q.isEmpty());
-		System.out.println(q.size());
-		q.enqueue(1);
-		q.enqueue(2);
-		q.enqueue(3);
-		q.enqueue(4);
-		q.enqueue(5);
-		System.out.println(q.isEmpty());
-		System.out.println(q.size());
-		System.out.println(q.dequeue());
-		System.out.println(q.dequeue());
-		System.out.println(q.dequeue());
-		System.out.println(q.dequeue());
-		System.out.println(q.dequeue());
-		System.out.println(q.isEmpty());
-		System.out.println(q.size());
-	}
 }

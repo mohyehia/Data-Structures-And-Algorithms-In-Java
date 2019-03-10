@@ -11,7 +11,7 @@ public interface Queue<E> {
 	boolean isEmpty();
 	/**
 	 * Inserts new element at the rear of the queue
-	 * @param e
+	 * @param e the element to be inserted
 	 */
 	void enqueue(E e);
 	/**
