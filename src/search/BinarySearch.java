@@ -4,9 +4,10 @@ package search;
 public class BinarySearch {
 	public static void main(String[] args) {
 		int[] a = {3, 5, 8, 10, 12, 14, 15, 16, 23, 26};
-		//System.out.println(iterativeBinarySearch(a, 16));
-		//System.out.println(recursiveBinarySearch(a, 27));
+		System.out.println(iterativeBinarySearch(a, 16));
+		System.out.println(recursiveBinarySearch(a, 27));
 	}
+	
 	//iterative binary search
 	static int iterativeBinarySearch(int[] a, int target) {
 		int left = 0, right = a.length - 1, mid = 0;
@@ -18,11 +19,13 @@ public class BinarySearch {
 		}
 		return -1;
 	}
+	
 	//recursive binary search
 	static int recursiveBinarySearch(int[] a, int target) {
 		return recursiveBinarySearch(a, 0, a.length - 1, target);
 	}
-	static int recursiveBinarySearch(int[] a, int left, int right, int target) {
+	
+	private static int recursiveBinarySearch(int[] a, int left, int right, int target) {
 		int mid = 0;
 		if(left <= right) {
 			mid = (left + right) / 2;
