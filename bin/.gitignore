@@ -1,13 +1,3 @@
-/arrayList/
-/bits/
-/circularlyLinkedList/
-/combinatorics/
-/deque/
-/doublyLinkedList/
-/graph/
-/graphs/
-/hashSet/
-/hashTable/
 /heaps/
 /priority_queue/
 /queue/
@@ -17,3 +7,4 @@
 /stack/
 /timing/
 /tree/
+/arrayList/
