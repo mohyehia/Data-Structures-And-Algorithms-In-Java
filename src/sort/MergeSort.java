@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 /**
  * 
- * @author mohammed
  * time complexity => O(nlog(n))
  * space complexity => O(n)
  *
@@ -15,6 +14,7 @@ public class MergeSort {
 		a = mergeSort(a);
 		for (int i : a) System.out.println(i);
 	}
+	
 	//divide array method
 	static int[] mergeSort(int[] a) {
 		int len = a.length;
@@ -26,20 +26,21 @@ public class MergeSort {
 		right = mergeSort(right);
 		return merge(left, right);
 	}
+	
 	//merge the arrays elements in a sorted way
 	private static int[] merge(int[] left, int[] right) {
 		int[] sortedArray = new int[left.length + right.length];
-		int l = 0, r = 0;
-		for(int i = 0; i < sortedArray.length; i++) {
-			if(l < left.length && r < right.length) {
-				if(left[l] < right[r])
-					sortedArray[i] = left[l++];
-				else sortedArray[i] = right[r++];
+		int lIndex = 0, rIndex = 0;
+		for (int i = 0; i < sortedArray.length; i++) {
+			if(lIndex < left.length && rIndex < right.length) {
+				if(left[lIndex] < right[rIndex])
+					sortedArray[i] = left[lIndex++];
+				else sortedArray[i] = right[rIndex++];
 			}else {
-				if(l == left.length) 
-					sortedArray[i] = right[r++];
-				else if(r == right.length)
-					sortedArray[i] = left[l++];
+				if(lIndex == left.length)
+					sortedArray[i] = right[rIndex++];
+				else if(rIndex == right.length)
+					sortedArray[i] = left[lIndex++];
 			}
 		}
 		return sortedArray;
