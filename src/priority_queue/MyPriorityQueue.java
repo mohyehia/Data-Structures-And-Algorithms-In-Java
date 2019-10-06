@@ -19,7 +19,7 @@ public class MyPriorityQueue<E extends Comparable<E>> {
 	
 	//return minimum element in priority queue
 	public E min() {
-		return heap.poll();
+		return heap.peek();
 	}
 	
 	//remove the element with the highest priority

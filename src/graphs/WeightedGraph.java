@@ -18,6 +18,7 @@ public class WeightedGraph {
 		}
 		for(int i = 0; i < numOfNodes; i++)
 			System.out.println(i + " => " + graph[i]);
+		in.close();
 	}
 	static class Node {
 		int node, cost;
