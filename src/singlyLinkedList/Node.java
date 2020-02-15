@@ -1,12 +1,9 @@
 package singlyLinkedList;
 public class Node<E> {
-	E data;
+	E val;
 	Node<E> next;
-	public Node(E data, Node<E> next) {
-		this.data = data;
+	public Node(E val, Node<E> next) {
+		this.val = val;
 		this.next = next;
-	}
-	public E getData() {
-		return data;
 	}
 }
