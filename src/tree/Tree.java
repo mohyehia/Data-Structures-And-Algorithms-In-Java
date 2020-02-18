@@ -12,7 +12,10 @@ public class Tree<E extends Comparable<E>> {
 	public boolean isEmpty(){
 		return root == null;
 	}
-	//add new value
+	/*
+	add new value at its proper position
+	time complexity => O(log(N))
+	 */
 	public void add(E e){
 		Node<E> node = new Node<>(e);
 		if(root == null) root = node;
@@ -34,7 +37,10 @@ public class Tree<E extends Comparable<E>> {
 		}
 		size++;
 	}
-	//return the minimum value of tree
+	/*
+	return the minimum value of tree
+	time complexity => O(log(N))
+	 */
 	public E getMin(){
 		return getMin(root);
 	}
@@ -44,7 +50,10 @@ public class Tree<E extends Comparable<E>> {
 		while(curr.getLeft() != null) curr = curr.getLeft();
 		return curr.getVal();
 	}
-	//return the maximum value of tree
+	/*
+	return the maximum value of tree
+	time complexity => O(log(N))
+	 */
 	public E getMax(){
 		return getMax(root);
 	}
@@ -54,10 +63,13 @@ public class Tree<E extends Comparable<E>> {
 		while(curr.getRight() != null) curr = curr.getRight();
 		return curr.getVal();
 	}
-	//check if a certain value exists in the tree
+	/*
+	check if a certain value exists in the tree
+	time complexity => O(log(N))
+	 */
 	public boolean contains(E e){
 		Node<E> curr = root;
-		int comp = 0;
+		int comp;
 		while(curr != null){
 			comp = curr.getVal().compareTo(e);
 			if(comp > 0) curr = curr.getLeft();
@@ -66,7 +78,10 @@ public class Tree<E extends Comparable<E>> {
 		}
 		return false;
 	}
-	//remove a value from the tree
+	/*
+	remove a value from the tree
+	time complexity => O(log(N))
+	 */
 	public Node<E> remove(E e){
 		return remove(root, e);
 	}
@@ -90,7 +105,10 @@ public class Tree<E extends Comparable<E>> {
 		size--;
 		return root;
 	}
-	//PreOrder Traversal
+	/*
+	PreOrder Traversal
+	time complexity => O(N)
+	 */
 	public void preOrder(){
 		preOrder(root);
 	}
@@ -102,7 +120,10 @@ public class Tree<E extends Comparable<E>> {
 			preOrder(node.getRight());
 		}
 	}
-	//PostOrder Traversal
+	/*
+	PostOrder Traversal
+	time complexity => O(N)
+	 */
 	public void postOrder(){
 		postOrder(root);
 	}
@@ -114,7 +135,10 @@ public class Tree<E extends Comparable<E>> {
 			node.visit();
 		}
 	}
-	//InOrder Traversal
+	/*
+	InOrder Traversal
+	time complexity => O(N)
+	 */
 	public void inOrder(){
 		inOrder(root);
 	}
