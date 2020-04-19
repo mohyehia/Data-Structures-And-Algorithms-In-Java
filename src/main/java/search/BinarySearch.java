@@ -26,7 +26,7 @@ public class BinarySearch {
 	}
 	
 	private static int recursiveBinarySearch(int[] a, int left, int right, int target) {
-		int mid = 0;
+		int mid;
 		if(left <= right) {
 			mid = (left + right) / 2;
 			if(target == a[mid]) return mid;

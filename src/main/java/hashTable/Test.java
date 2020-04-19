@@ -8,7 +8,7 @@ public class Test {
 		map.put(3, "omar");
 		map.put(4, "ali");
 		map.put(5, "amr");
-		System.out.println(map.containtsKey(6));
+		System.out.println(map.containsKey(6));
 		System.out.println(map.containsValue("omar"));
 		System.out.println(map.size());
 		System.out.println(map);

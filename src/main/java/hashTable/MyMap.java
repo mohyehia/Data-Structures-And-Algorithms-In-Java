@@ -15,26 +15,26 @@ public interface MyMap<K, V> {
 	boolean isEmpty();
 	/**
 	 * Add an entry (key, value) into the map
-	 * @param k
-	 * @param v
+	 * @param key
+	 * @param value
 	 * @return
 	 */
 	V put(K key, V value);
 	/**
 	 * 
-	 * @param k
+	 * @param key
 	 * @return the value that matches the specified key
 	 */
 	V get(K key);
 	/**
 	 * 
-	 * @param k
+	 * @param key
 	 * @return true if the specified key is in the map
 	 */
-	boolean containtsKey(K key);
+	boolean containsKey(K key);
 	/**
 	 * 
-	 * @param v
+	 * @param value
 	 * @return true if this map contains the specified value
 	 */
 	boolean containsValue(V value);
@@ -42,7 +42,7 @@ public interface MyMap<K, V> {
 	 * 
 	 * @return a set consisting of the keys in this map
 	 */
-	Set<K> keyset();
+	Set<K> keySet();
 	/**
 	 * 
 	 * @return a set consisting of the values in this map
@@ -55,7 +55,7 @@ public interface MyMap<K, V> {
 	Set<Entry<K, V>> entrySet();
 	/**
 	 * Remove an entry for the specified key
-	 * @param k
+	 * @param key
 	 */
 	void remove(K key);
 	/**

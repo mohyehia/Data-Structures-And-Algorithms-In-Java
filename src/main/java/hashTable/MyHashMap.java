@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+@SuppressWarnings("unchecked")
 public class MyHashMap<K, V> implements MyMap<K, V> {
 
 	private int capacity = 4, size = 0;
@@ -41,7 +42,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 		int index = hash(key.hashCode());
 		if(data[index] == null)
 			data[index] = new LinkedList<>();
-		data[index].add(new Entry<K, V>(key, value));
+		data[index].add(new Entry<>(key, value));
 		size++;
 		return value;
 	}
@@ -57,9 +58,8 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 	}
 
 	@Override
-	public boolean containtsKey(K key) {
-		if(get(key) != null) return true;
-		return false;
+	public boolean containsKey(K key) {
+		return get(key) != null;
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 	}
 
 	@Override
-	public Set<K> keyset() {
+	public Set<K> keySet() {
 		Set<K> keys = new HashSet<>();
 		for(int i = 0; i < capacity; i++) {
 			if(data[i] != null) {
@@ -102,8 +102,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 		Set<Entry<K, V>> entries = new HashSet<>();
 		for(int i = 0; i < capacity; i++) {
 			if(data[i] != null) {
-				for(Entry<K, V> entry : data[i])
-					entries.add(entry);
+				entries.addAll(data[i]);
 			}
 		}
 		return entries;
@@ -145,7 +144,7 @@ public class MyHashMap<K, V> implements MyMap<K, V> {
 	
 	private void ensureExtraCapacity() {
 		if(size >= capacity * loadFactorThreshold) {
-			capacity <<= 1;
+			capacity <<= 1; // means capacity *= 2
 			data = Arrays.copyOf(data, capacity);
 		}
 	}
